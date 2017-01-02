@@ -1,5 +1,13 @@
 %p#notice= notice
 
+.col-md-4
+.col-md-8
+  %h3= @post.title
+  %p.item= @post.item
+  %p.description= @post.description
+  -# %p
+  -#   Submitted by
+    -# = @post.user
 
 = link_to 'Edit', edit_post_path(@post)
 \|

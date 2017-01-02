@@ -1,19 +1,16 @@
-%h1 Listing posts
+.container
+  %h1 Listing posts
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
+  - @posts.each do |post|
+    .row
+      %h3= link_to post.title, post
+      = link_to 'Show', post, class:"btn btn-primary"
+      = link_to 'Edit', edit_post_path(post), class:"btn btn-success"
+      = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn btn-danger"
 
-  %tbody
-    - @posts.each do |post|
-      %tr
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %br
+      %br
 
 %br
 
-= link_to 'New Post', new_post_path
+= link_to 'New Post', new_post_path, class:'btn btn-primary'
