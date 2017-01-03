@@ -26,6 +26,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
+    # // why is this required for user validation? -- Rails 5 requirements (search - "rails user must exist belongs to")
+    @post.user = current_user
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -70,6 +73,6 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       # params.fetch(:post {:title, :item, :description})
-      params.require(:post).permit(:title, :item, :description, :user_id)
+      params.require(:post).permit(:title, :item, :description, :user_id, :image)
     end
 end
