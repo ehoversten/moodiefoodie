@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  include Geokit::Geocoders
   # GET /posts
   # GET /posts.json
   def index
@@ -73,6 +74,6 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       # params.fetch(:post {:title, :item, :description})
-      params.require(:post).permit(:title, :item, :description, :user_id, :image)
+      params.require(:post).permit(:title, :item, :description, :user_id, :image, :lat, :lng)
     end
 end

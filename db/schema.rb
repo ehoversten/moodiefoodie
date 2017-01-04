@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102212359) do
+ActiveRecord::Schema.define(version: 20170104175841) do
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at",         null: false
@@ -23,6 +31,9 @@ ActiveRecord::Schema.define(version: 20170102212359) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.string   "address"
   end
 
   create_table "restaurants", force: :cascade do |t|

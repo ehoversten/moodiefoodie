@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :locations
   resources :posts
   resources :restaurants
   devise_for :users

@@ -8,6 +8,23 @@
 
   %body
 
+    %nav.navbar.navbar-default
+      -# .container
+      .navbar-brand
+        %h1= link_to "MoodieFoodie", root_path
+
+      - if user_signed_in?
+        %ul.nav.navbar-nav
+          %form.form-inline.float-sm-right
+            %li= link_to "New Post", new_post_path, class: 'btn btn-outline-primary'
+            %br
+            %li= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger'
+      - else
+        %ul.nav.navbar-nav.float-sm-right
+          %li= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success'
+          %br
+          %li= link_to "Sign In", new_user_session_path, class: 'btn btn-secondary'
+
     %p.notice= notice
     %p.alert= alert
     .container

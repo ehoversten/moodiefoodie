@@ -29,6 +29,12 @@ gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'devise', '~> 4.2'
 gem 'rails-assets-tether', '>= 1.1.0'
 
+# mapping GEMS
+gem 'ym4r', '~> 0.6.1'
+gem 'geokit-rails'
+
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
