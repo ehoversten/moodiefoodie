@@ -2,6 +2,8 @@
 Geokit::default_units = :miles # others :kms, :nms, :meters
 Geokit::default_formula = :sphere
 
+Geokit::Geocoders::provider_order=[:google]
+
 # This is the timeout value in seconds to be used for calls to the geocoder web
 # services.  For no timeout at all, comment out the setting.  The timeout unit
 # is in seconds.

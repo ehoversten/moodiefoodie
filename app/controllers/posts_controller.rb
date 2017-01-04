@@ -71,9 +71,22 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
+    def geocode_address
+      geo=Geokit::Geocoders::GoogleGeocoder.geocode(address)
+      errors.add(:address, "Could not Geocode address") if !geo.success
+      self.lat, self.lng = geo.lat,geo.lng if geo.success
+    end
+    # def geocode_address
+    #   if !address_geo.blank?
+    #     geo=Geokit::Geocoders::MultiGeocoder.geocode(address_geo)
+    #     errors.add(:address, "Could not Geocode address") if !geo.success
+    #     self.lat, self.lng = geo.lat,geo.lng if geo.success
+    #   end
+    # end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       # params.fetch(:post {:title, :item, :description})
-      params.require(:post).permit(:title, :item, :description, :user_id, :image, :lat, :lng)
+      params.require(:post).permit(:title, :item, :description, :user_id, :image, :lat, :lng, :address, :latitude, :longitude)
     end
 end

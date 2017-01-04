@@ -4,13 +4,16 @@
 
   - @posts.each do |post|
     .row
-      %h3= link_to post.title, post
-      = link_to 'Show', post, class:"btn btn-outline-primary"
-      = link_to 'Edit', edit_post_path(post), class:"btn btn-outline-success"
-      = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn btn-outline-danger"
+      .col-md-2
+        = image_tag post.image.url(:thumb)
+      .col-md-10
+        %h3= link_to post.title, post
+        = link_to 'Show', post, class:"btn btn-outline-primary"
+        = link_to 'Edit', edit_post_path(post), class:"btn btn-outline-success"
+        = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn btn-outline-danger"
 
       %br
-      %br
+    %br
 
 %br
 
