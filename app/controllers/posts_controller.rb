@@ -46,6 +46,8 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+
+
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -71,11 +73,11 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    def geocode_address
-      geo=Geokit::Geocoders::GoogleGeocoder.geocode(address)
-      errors.add(:address, "Could not Geocode address") if !geo.success
-      self.lat, self.lng = geo.lat,geo.lng if geo.success
-    end
+    # def geocode_address
+    #   geo=Geokit::Geocoders::GoogleGeocoder.geocode(address)
+    #   errors.add(:address, "Could not Geocode address") if !geo.success
+    #   self.lat, self.lng = geo.lat,geo.lng if geo.success
+    # end
     # def geocode_address
     #   if !address_geo.blank?
     #     geo=Geokit::Geocoders::MultiGeocoder.geocode(address_geo)
