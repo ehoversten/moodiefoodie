@@ -32,8 +32,9 @@ gem 'rails-assets-tether', '>= 1.1.0'
 # mapping GEMS
 gem 'ym4r', '~> 0.6.1'
 gem 'geokit-rails'
-
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
+
+gem "recaptcha", require: "recaptcha/rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
